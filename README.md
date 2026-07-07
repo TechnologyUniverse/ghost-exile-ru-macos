@@ -39,8 +39,8 @@
 ## Установка
 
 ```bash
-git clone https://github.com/TechnologyUniverse/ghost-exile-ru-crossover.git
-cd ghost-exile-ru-crossover
+git clone https://github.com/TechnologyUniverse/ghost-exile-ru-macos.git
+cd ghost-exile-ru-macos
 chmod +x ghost_exile_ru_crossover.sh ghost_exile_ru_gamehub.sh
 ```
 
