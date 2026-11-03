@@ -33,17 +33,17 @@ bash ghost_exile_ru_crossover.sh --kill-steam --start-steam
 - **1.1** — добавлена поддержка GameHub.
 - **1.0** — первый скрипт для CrossOver.
 
-## Скриншоты
+## Кадры из Ghost Exile
 
-<p align="center">
-  <img src="assets/screenshot-1.jpg" alt="Ghost Exile Screenshot 1" width="49%">
-  <img src="assets/screenshot-2.jpg" alt="Ghost Exile Screenshot 2" width="49%">
-</p>
+**Гуль** — новый тип призрака из обновления Apocalypse.
 
-<p align="center">
-  <img src="assets/screenshot-3.jpg" alt="Ghost Exile Screenshot 3" width="49%">
-  <img src="assets/screenshot-4.jpg" alt="Ghost Exile Screenshot 4" width="49%">
-</p>
+![Гуль в Ghost Exile](https://clan.fastly.steamstatic.com/images/41456438/6ce85c03edef9882158b688bd6b78de410e620fb.gif)
+
+**Церковь** — одна из локаций для расследований.
+
+![Церковь в Ghost Exile](https://clan.fastly.steamstatic.com/images/41456438/1af9580123a59ee1b77beb3be6b91adb1723b227.png)
+
+Кадры из [официальных новостей Ghost Exile в Steam](https://steamcommunity.com/app/1807080/allnews/).
 
 ## Авторские права
 
