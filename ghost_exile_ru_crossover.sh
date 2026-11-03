@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/ghost_exile_settings.sh"
+
 APP_ID="1807080"
 APP_NAME="Ghost Exile"
 TARGET_LANG="russian"
@@ -329,7 +332,9 @@ if [ "$LOCALCONFIG_COUNT" -eq 0 ]; then
   say "localconfig: пользовательские конфиги Steam не найдены, пропускаю"
 fi
 
-patch_user_reg "$USER_REG"
+if ! patch_game_settings "$BOTTLE_PATH"; then
+  patch_user_reg "$USER_REG"
+fi
 fix_lorenote_ukr_fallback "$LORENOTE_RU_DIR" "$LORENOTE_UKR_DIR"
 fix_language_aliases "$LORENOTE_RU_DIR" "$OUIJA_RU_DIR" "$STREAMING_ASSETS_ROOT"
 

@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/ghost_exile_settings.sh"
+
 APP_ID="1807080"
 APP_NAME="Ghost Exile"
 TARGET_LANG_HEX="7275737369616e"
@@ -215,7 +218,9 @@ while IFS= read -r localconfig; do
 done < <(find "$STEAM_ROOT/userdata" -type f -path '*/config/localconfig.vdf' 2>/dev/null | sort)
 [ "$LOCALCONFIG_COUNT" -gt 0 ] || say "localconfig: файлы пользователей Steam не найдены"
 
-patch_user_reg "$USER_REG"
+if ! patch_game_settings "$CONTAINER_PATH"; then
+  patch_user_reg "$USER_REG"
+fi
 
 for code in UKR POL GER FR IT SP CH TUR HUNG; do
   ensure_alias_dir "LoreNote fallback ($code)" "$ASSETS/LoreNote/RU" "$ASSETS/LoreNote/$code"
