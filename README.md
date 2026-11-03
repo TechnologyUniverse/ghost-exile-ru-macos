@@ -33,6 +33,18 @@ bash ghost_exile_ru_crossover.sh --kill-steam --start-steam
 - **1.1** — добавлена поддержка GameHub.
 - **1.0** — первый скрипт для CrossOver.
 
+## Скриншоты
+
+<p align="center">
+  <img src="assets/screenshot-1.jpg" alt="Ghost Exile Screenshot 1" width="49%">
+  <img src="assets/screenshot-2.jpg" alt="Ghost Exile Screenshot 2" width="49%">
+</p>
+
+<p align="center">
+  <img src="assets/screenshot-3.jpg" alt="Ghost Exile Screenshot 3" width="49%">
+  <img src="assets/screenshot-4.jpg" alt="Ghost Exile Screenshot 4" width="49%">
+</p>
+
 ## Авторские права
 
 **© 2026 Technology Universe. Все права на оригинальный код скриптов сохранены.**
