@@ -15,6 +15,10 @@
   <img src="https://img.shields.io/badge/Language-Russian-1f6feb?style=for-the-badge" alt="Russian language">
 </p>
 
+**[Скачать Ghost Exile RU для macOS v1.2.0](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/download/v1.2.0/ghost-exile-ru-macos-v1.2.0.tar.gz)** · [Описание релиза](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/tag/v1.2.0)
+
+> В игровом прогоне подтверждены русский интерфейс и русские реплики. Ритуал изгнания успешно завершён.
+
 [Установка](#установка) · [GameHub](#gamehub) · [CrossOver](#crossover) · [Проверка в игре](#проверка-в-игре) · [История версий](#история-версий)
 
 ## Совместимость
@@ -30,12 +34,15 @@
 
 ## Установка
 
-Для Ghost Exile 2.x сначала запусти игру один раз, чтобы она создала файл настроек. Перед применением исправления закрой игру.
+1. Скачай архив релиза и распакуй его. Оба скрипта и два общих файла настроек должны лежать в одной папке.
+2. Запусти Ghost Exile 2.x один раз, чтобы игра создала файл настроек, затем закрой её.
+3. Открой Терминал в распакованной папке и выполни команды для своего лаунчера.
+
+Если пользуешься Git, можно получить ту же версию командой:
 
 ```bash
-git clone https://github.com/TechnologyUniverse/ghost-exile-ru-macos.git
+git clone --branch v1.2.0 https://github.com/TechnologyUniverse/ghost-exile-ru-macos.git
 cd ghost-exile-ru-macos
-chmod +x ghost_exile_ru_crossover.sh ghost_exile_ru_gamehub.sh
 ```
 
 ## GameHub
@@ -102,15 +109,15 @@ chmod +x ghost_exile_ru_crossover.sh ghost_exile_ru_gamehub.sh
 
 ## История версий
 
-Номера ниже обозначают этапы развития скриптов. Версия Ghost Exile указана отдельно.
+Версии относятся к скриптам. **v1.2.0** — первый опубликованный релиз на GitHub. Версии **1.0** и **1.1** обозначают предыдущие этапы проекта.
 
 | Версия скриптов | Дата | Изменения |
 | --- | --- | --- |
-| **1.2** | 3 ноября 2026 | Поддержка настроек Ghost Exile 2.x в обоих лаунчерах. Русский язык интерфейса и распознавания речи через `ge_settings.gs`, резервная копия перед записью и проверка формата файла. [PR №2](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/pull/2) |
+| [**1.2.0**](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/tag/v1.2.0) | 3 ноября 2026 | Поддержка настроек Ghost Exile 2.x в обоих лаунчерах. Русский язык интерфейса и распознавания речи через `ge_settings.gs`, резервная копия перед записью и проверка формата файла. [PR №2](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/pull/2) |
 | **1.1** | 7 июля 2026 | Поддержка GameHub с автоматическим поиском контейнера и ручным выбором через `--container`. [PR №1](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/pull/1) |
 | **1.0** | 18 апреля 2026 | Первый скрипт для CrossOver. Настройка языка Steam и игры, резервные копии и пробный запуск. [Первый коммит](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/commit/bf77d64) |
 
-Для версии **1.2** оба скрипта проверены на macOS во временных контейнерах с копиями настроек Steam-сборки `26403410`. Проверка интерфейса и ритуалов в запущенной игре остаётся открытой.
+Оба скрипта проверены на macOS во временных контейнерах с копиями настроек Steam-сборки `26403410`. В отдельном игровом прогоне подтверждены русские меню и реплики, ритуал изгнания завершён. Лаунчер и номер сборки для игрового прогона не указаны.
 
 ## Какие файлы затрагиваются
 
