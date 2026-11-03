@@ -35,15 +35,11 @@ bash ghost_exile_ru_crossover.sh --kill-steam --start-steam
 
 ## Кадры из Ghost Exile
 
-**Гуль** — новый тип призрака из обновления Apocalypse.
+![Обновлённое лобби с настройками контракта](assets/contract.jpg)
 
-![Гуль в Ghost Exile](https://clan.fastly.steamstatic.com/images/41456438/6ce85c03edef9882158b688bd6b78de410e620fb.gif)
+![Гуль в тёмном коридоре](assets/ghoul.jpg)
 
-**Церковь** — одна из локаций для расследований.
-
-![Церковь в Ghost Exile](https://clan.fastly.steamstatic.com/images/41456438/1af9580123a59ee1b77beb3be6b91adb1723b227.png)
-
-Кадры из [официальных новостей Ghost Exile в Steam](https://steamcommunity.com/app/1807080/allnews/).
+![Локация «Церковь»](assets/church.jpg)
 
 ## Авторские права
 
