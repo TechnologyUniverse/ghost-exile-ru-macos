@@ -1,7 +1,10 @@
 # Ghost Exile на русском · macOS
 
+## Ghost Exile
+
+
 <p align="center">
-  <img src="assets/header.jpg" alt="Ghost Exile" width="100%">
+  <img src="assets/ghost-exile.png" alt="Ghost Exile" width="100%">
 </p>
 
 <p align="center">
