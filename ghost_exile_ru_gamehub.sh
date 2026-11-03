@@ -17,6 +17,7 @@ TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 
 CONTAINER_PATH=""
 DRY_RUN=0
+CHECK_ONLY=0
 KILL_STEAM=0
 START_GAMEHUB=0
 
@@ -26,11 +27,12 @@ fail() { printf 'Ошибка: %s\n' "$*" >&2; exit 1; }
 usage() {
   cat <<EOF
 Использование:
-  $(basename "$0") [--dry-run] [--kill-steam] [--start-gamehub] [--container PATH]
+  $(basename "$0") [--check | --dry-run] [--kill-steam] [--start-gamehub] [--container PATH]
 
 Включает русский язык Ghost Exile в Steam-контейнере GameHub.
 
 Опции:
+  --check         Показать сборку Steam и языки игры без изменений
   --dry-run         Показать изменения без записи
   --kill-steam      Закрыть Steam перед изменениями
   --start-gamehub   Открыть GameHub после изменений
@@ -164,6 +166,7 @@ ensure_alias_dir() {
 
 while [ $# -gt 0 ]; do
   case "$1" in
+    --check) CHECK_ONLY=1 ;;
     --dry-run) DRY_RUN=1 ;;
     --kill-steam) KILL_STEAM=1 ;;
     --start-gamehub) START_GAMEHUB=1 ;;
@@ -182,13 +185,16 @@ done
 [ -n "$CONTAINER_PATH" ] || find_container
 [ -d "$CONTAINER_PATH" ] || fail "контейнер не найден: $CONTAINER_PATH"
 
-STEAM_ROOT="$CONTAINER_PATH/drive_c/Program Files (x86)/Steam"
-MANIFEST="$STEAM_ROOT/steamapps/appmanifest_${APP_ID}.acf"
+locate_game "$CONTAINER_PATH"
 USER_REG="$CONTAINER_PATH/user.reg"
 GAME_ROOT="$STEAM_ROOT/steamapps/common/GhostExile"
 ASSETS="$GAME_ROOT/GhostExile_Data/StreamingAssets"
 
 [ -f "$MANIFEST" ] || fail "манифест Ghost Exile не найден: $MANIFEST"
+if [ "$CHECK_ONLY" -eq 1 ]; then
+  report_game_settings "$CONTAINER_PATH"
+  exit 0
+fi
 [ -f "$USER_REG" ] || fail "реестр контейнера не найден: $USER_REG"
 [ -d "$GAME_ROOT" ] || fail "папка Ghost Exile не найдена: $GAME_ROOT"
 

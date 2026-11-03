@@ -44,3 +44,34 @@ patch_game_settings() {
     return 1
   fi
 }
+
+locate_game() {
+  STEAM_ROOT="$1/drive_c/Program Files (x86)/Steam"
+  MANIFEST="$STEAM_ROOT/steamapps/appmanifest_${APP_ID}.acf"
+  [ -f "$MANIFEST" ] || fail "манифест Ghost Exile не найден: $MANIFEST"
+}
+
+report_game_settings() {
+  local prefix="$1" build profile file status
+  local found=0
+  build="$(perl -ne 'if (/^\s*"buildid"\s*"([0-9]+)"/i) { print $1; exit }' "$MANIFEST")"
+  say "Установка: $prefix"
+  say "Сборка Steam: ${build:-не указана}"
+
+  for profile in "$prefix"/drive_c/users/*; do
+    file="$profile/AppData/LocalLow/LostOneTeam/GhostExile/ge_settings.gs"
+    [ -f "$file" ] || continue
+    found=1
+    say "Настройки: $file"
+    if perl "$SCRIPT_DIR/ghost_exile_settings.pl" report "$file"; then
+      continue
+    else
+      status=$?
+    fi
+    [ "$status" -eq 2 ] || fail "не удалось прочитать настройки: $file"
+    say "Статус: неизвестный формат настроек"
+  done
+  if [ "$found" -eq 0 ]; then
+    say "Статус: файл настроек не найден. Для Ghost Exile 2.x сначала запусти игру один раз."
+  fi
+}

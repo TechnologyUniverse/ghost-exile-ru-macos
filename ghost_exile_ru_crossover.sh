@@ -19,6 +19,7 @@ TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 
 BOTTLE_PATH="$DEFAULT_BOTTLE_PATH"
 DRY_RUN=0
+CHECK_ONLY=0
 KILL_STEAM=0
 START_STEAM=0
 
@@ -34,7 +35,7 @@ fail() {
 usage() {
   cat <<EOF
 Использование:
-  $(basename "$0") [--dry-run] [--kill-steam] [--start-steam] [--bottle PATH]
+  $(basename "$0") [--check | --dry-run] [--kill-steam] [--start-steam] [--bottle PATH]
 
 Что делает:
   1. Проверяет bottle Steam в CrossOver
@@ -46,6 +47,7 @@ usage() {
   4. Делает резервные копии перед изменениями
 
 Опции:
+  --check         Показать сборку Steam и языки игры без изменений
   --dry-run       Только показать, что будет изменено
   --kill-steam    Закрыть Steam bottle перед изменениями
   --start-steam   После правок открыть Steam через CrossOver
@@ -264,6 +266,7 @@ start_steam() {
 
 while [ $# -gt 0 ]; do
   case "$1" in
+    --check) CHECK_ONLY=1 ;;
     --dry-run)
       DRY_RUN=1
       ;;
@@ -291,8 +294,7 @@ done
 
 [ -d "$BOTTLE_PATH" ] || fail "bottle не найден: $BOTTLE_PATH"
 
-STEAM_ROOT="$BOTTLE_PATH/drive_c/Program Files (x86)/Steam"
-MANIFEST="$STEAM_ROOT/steamapps/appmanifest_${APP_ID}.acf"
+locate_game "$BOTTLE_PATH"
 USER_REG="$BOTTLE_PATH/user.reg"
 LORENOTE_RU_DIR="$STEAM_ROOT/steamapps/common/GhostExile/GhostExile_Data/StreamingAssets/LoreNote/RU"
 LORENOTE_UKR_DIR="$STEAM_ROOT/steamapps/common/GhostExile/GhostExile_Data/StreamingAssets/LoreNote/UKR"
@@ -301,6 +303,10 @@ STREAMING_ASSETS_ROOT="$STEAM_ROOT/steamapps/common/GhostExile/GhostExile_Data/S
 
 [ -d "$STEAM_ROOT" ] || fail "Steam не найден внутри bottle: $STEAM_ROOT"
 [ -f "$MANIFEST" ] || fail "appmanifest игры не найден: $MANIFEST"
+if [ "$CHECK_ONLY" -eq 1 ]; then
+  report_game_settings "$BOTTLE_PATH"
+  exit 0
+fi
 [ -f "$USER_REG" ] || fail "реестр bottle не найден: $USER_REG"
 
 say "Bottle: $BOTTLE_PATH"

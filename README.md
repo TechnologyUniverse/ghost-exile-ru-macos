@@ -6,7 +6,7 @@
 
 ## Как установить
 
-1. [Скачай архив v1.2.0](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/download/v1.2.0/ghost-exile-ru-macos-v1.2.0.tar.gz) и распакуй его. Оставь все файлы из архива в одной папке.
+1. [Скачай архив v1.3.0](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/download/v1.3.0/ghost-exile-ru-macos-v1.3.0.tar.gz) и распакуй его. Оставь все файлы из архива в одной папке.
 2. Запусти Ghost Exile через свой лаунчер хотя бы один раз, чтобы игра создала настройки. Затем закрой игру.
 3. Открой Терминал. Напечатай `cd`, поставь пробел, перетащи распакованную папку в окно Терминала и нажми Enter.
 4. Выполни команду для своего лаунчера.
@@ -27,8 +27,13 @@ bash ghost_exile_ru_crossover.sh --kill-steam --start-steam
 
 Если хочешь сначала посмотреть, что изменится, запусти свой скрипт с параметром `--dry-run` вместо параметров из примера. Если скрипт сообщает о неизвестном формате настроек, выбери русский язык интерфейса и распознавания речи в самой игре.
 
+## Как проверить язык и сборку
+
+Выполни `bash ghost_exile_ru_gamehub.sh --check` или `bash ghost_exile_ru_crossover.sh --check`. Проверка покажет путь к установке, номер сборки Steam и оба языка. Она не меняет файлы и не закрывает Steam.
+
 ## История версий
 
+- **[1.3.0](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/tag/v1.3.0)** — общий режим проверки установки, сборки Steam и двух языков.
 - **[1.2.0](https://github.com/TechnologyUniverse/ghost-exile-ru-macos/releases/tag/v1.2.0)** — поддержка Ghost Exile 2.x. В игровом прогоне меню и реплики были на русском, ритуал изгнания завершён.
 - **1.1** — добавлена поддержка GameHub.
 - **1.0** — первый скрипт для CrossOver.
